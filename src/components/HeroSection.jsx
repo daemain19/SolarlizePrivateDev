@@ -12,7 +12,7 @@ const HeroSection = () => {
             <p className="text-xl text-[#FFF7E8] mt-4 font-afacad">
                 Offset your carbon footprint by funding solar power where it’s needed most—with <span className="text-[#E7FE4A]">Solarlize.</span>
             </p>
-            <button className="mt-8 bg-[#E7FE4A] hover:bg-[#90e600] text-black font-bold py-3 px-6 rounded-full flex items-center text-lg font-afacad">
+            <button className="mt-8 bg-[#E7FE4A] hover:bg-[#FFF7E8] text-black font-bold py-3 px-6 rounded-full flex items-center text-lg font-afacad">
                 <span>Let's Get Started</span>
                 <div className="w-10 h-10 ml-3 bg-black rounded-full flex items-center justify-center text-[#FFF7E8]">
                     →

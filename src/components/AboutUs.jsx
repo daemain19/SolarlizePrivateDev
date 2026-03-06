@@ -23,16 +23,10 @@ const AboutUs = forwardRef((props, ref) => {
             <div className="w-full md:w-1/2 p-4">
                 <h2 className="text-[100px] text-[#2A2A2A] font-readex font-medium mb-4 leading-[100px] tracking-[-8px] -mt-12">Who are we?</h2>
                 <p className="text-xl text-[#2A2A2A] mt-5 font-afacad">
-                    We at Solarlize, Lorem ipsum dolor sit amet consectetur adipiscing elit.
-                    Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi.
-                    Pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
-                    Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Laculis massa
-                    nisl malesuada lacinia integer nunc posuere.
+                    At <span className="font-bold">Solarlize,</span> our goal is to empower UK households to take direct climate action by funding solar energy projects in regions where solar power can create the most impact. Many communities around the world, especially in places like Africa, lack access to reliable electricity and depend on polluting energy sources. By enabling households to fund solar panels in these areas, we help replace dirty energy with clean, renewable power—reducing global carbon emissions while improving lives through access to sustainable electricity.
                 </p>
                 <p className="text-xl text-[#2A2A2A] mt-4 font-afacad">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus
-                    ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus
-                    duis convallis. Tempus leo eu aenean sed diam urna tempor.
+                    We aim to make carbon offsetting meaningful and transparent. Unlike traditional offset schemes, your contribution goes directly toward installing solar infrastructure in communities that need it most. With <span className="font-bold">Solarlize,</span> you can see the real-world impact of your gift—from the electricity generated to the carbon saved—while supporting energy access, local jobs, and a healthier planet for everyone.
                 </p>
             </div>
         </section>

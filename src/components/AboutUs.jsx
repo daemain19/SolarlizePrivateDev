@@ -5,7 +5,7 @@ import worker from '../assests/pexels-gustavo-fring-4254171.jpg';
 
 const AboutUs = forwardRef((props, ref) => {
     return (
-        <section ref={ref} className="py-20 px-12 bg-[#E7FE4A] flex flex-col md:flex-row items-center">
+        <section ref={ref} className="py-20 px-12 bg-[#FFF7E8] flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 p-4 relative">
                 <div className="relative">
                     <img

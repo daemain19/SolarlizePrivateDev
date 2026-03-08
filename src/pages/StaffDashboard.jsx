@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useCallback, useMemo } from "react";
 import StaffNavbar from "../components/staff/StaffNavbar";
 import INITIAL_PROJECTS from "../mocks/projects";
+import { StatusSection } from "../components/staff/StatusSection";
 
 function StaffDashboard() {
   const [projects, setProjects] = useState(INITIAL_PROJECTS);
@@ -40,10 +41,6 @@ function StaffDashboard() {
         <div className="min-h-screen bg-cover bg-no-repeat bg-center flex flex-col">
           <StaffNavbar />
           <div
-            style={{
-              background:
-                "linear-gradient(180deg, #fffbeb 0%, #fefce8 40%, #f5f5f4 100%)",
-            }}
           >
             <div className="mt-20 max-w-5xl mx-auto px-6 py-8">
               {/* stat pills */}
@@ -87,6 +84,27 @@ function StaffDashboard() {
                   </div>
                 ))}
               </div>
+              {/* sections -- Pending */}
+              <StatusSection
+                title="Pending Projects"
+                projects={pending}
+                icon="!"
+                accentColor="#d97706"
+              />
+              {/* sections -- In Progress */}
+              <StatusSection
+                title="In Progress"
+                projects={inProgress}
+                icon="→"
+                accentColor="#0284c7"
+              />
+              {/* sections -- Completed */}
+              <StatusSection
+                title="Completed"
+                projects={completed}
+                icon="✓"
+                accentColor="#059669"
+              />
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { useState, useCallback, useMemo } from "react";
 import StaffNavbar from "../components/staff/StaffNavbar";
 import INITIAL_PROJECTS from "../mocks/projects";
 import { StatusSection } from "../components/staff/StatusSection";
+import {DetailModal} from "../components/staff/DetailModal";
 
 function StaffDashboard() {
   const [projects, setProjects] = useState(INITIAL_PROJECTS);
@@ -141,6 +142,9 @@ function StaffDashboard() {
           </div>
         </div>
       </div>
+
+      {/* project detail modal */}
+      <DetailModal project={selected} onClose={() => setSelected(null)} onAccept={accept} onComplete={complete} />
     </>
   );
 }

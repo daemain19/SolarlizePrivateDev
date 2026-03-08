@@ -7,6 +7,30 @@ import { StatusSection } from "../components/staff/StatusSection";
 function StaffDashboard() {
   const [projects, setProjects] = useState(INITIAL_PROJECTS);
 
+  const [selected, setSelected] = useState(null);
+
+  const accept = useCallback(
+    (id) => {
+      setProjects((prev) =>
+        prev.map((p) => (p.id === id ? { ...p, status: "In Progress" } : p)),
+      );
+      if (selected?.id === id)
+        setSelected((s) => ({ ...s, status: "In Progress" }));
+    },
+    [selected],
+  );
+
+  const complete = useCallback(
+    (id) => {
+      setProjects((prev) =>
+        prev.map((p) => (p.id === id ? { ...p, status: "Completed" } : p)),
+      );
+      if (selected?.id === id)
+        setSelected((s) => ({ ...s, status: "Completed" }));
+    },
+    [selected],
+  );
+
   const pending = useMemo(
     () => projects.filter((p) => p.status === "Pending"),
     [projects],
@@ -40,8 +64,7 @@ function StaffDashboard() {
       <div className="min-h-screen flex flex-col">
         <div className="min-h-screen bg-cover bg-no-repeat bg-center flex flex-col">
           <StaffNavbar />
-          <div
-          >
+          <div>
             <div className="mt-20 max-w-5xl mx-auto px-6 py-8">
               {/* stat pills */}
               <div className="flex flex-wrap gap-3 mb-8">
@@ -90,6 +113,9 @@ function StaffDashboard() {
                 projects={pending}
                 icon="!"
                 accentColor="#d97706"
+                onSelect={setSelected}
+                onAccept={accept}
+                onComplete={complete}
               />
               {/* sections -- In Progress */}
               <StatusSection
@@ -97,6 +123,9 @@ function StaffDashboard() {
                 projects={inProgress}
                 icon="→"
                 accentColor="#0284c7"
+                onSelect={setSelected}
+                onAccept={accept}
+                onComplete={complete}
               />
               {/* sections -- Completed */}
               <StatusSection
@@ -104,6 +133,9 @@ function StaffDashboard() {
                 projects={completed}
                 icon="✓"
                 accentColor="#059669"
+                onSelect={setSelected}
+                onAccept={accept}
+                onComplete={complete}
               />
             </div>
           </div>

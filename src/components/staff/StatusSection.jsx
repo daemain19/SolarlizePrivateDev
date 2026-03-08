@@ -2,7 +2,7 @@ import { formatDate } from "../../extensions/formatter";
 import { IconArrowRight, IconCheck } from "@tabler/icons-react";
 import { STATUS_CONFIG } from "../../extensions/staff_config";
 
-export function StatusSection({ title, projects, icon, accentColor}) {
+export function StatusSection({ title, projects, icon, accentColor, onSelect, onAccept, onComplete }) {
   return (
     <div className="mb-10">
       <div className="flex items-center gap-2.5 mb-4">
@@ -21,7 +21,7 @@ export function StatusSection({ title, projects, icon, accentColor}) {
       ) : (
         <div className="flex flex-col gap-3 overflow-y-auto pr-1" style={{ maxHeight: "calc(5 * 5.5rem)" }}>
           {projects.map((p) => (
-            <ProjectRow key={p.id} project={p} />
+            <ProjectRow key={p.id} project={p} onClick={() => onSelect(p)} onAccept={onAccept} onComplete={onComplete} />
           ))}
         </div>
       )}
@@ -29,12 +29,13 @@ export function StatusSection({ title, projects, icon, accentColor}) {
   );
 }
 
-function ProjectRow({ project}) {
+function ProjectRow({ project, onClick, onAccept, onComplete}) {
   const cfg = STATUS_CONFIG[project.status];
   return (
     <div
       className={`group flex items-center gap-4 px-5 py-4 rounded-xl border ${cfg.border} ${cfg.bg} cursor-pointer transition-all hover:shadow-md hover:-translate-y-0.5`}
       style={{ animation: "fadeSlideIn 0.35s ease-out both" }}
+      onClick={onClick}
     >
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
@@ -51,6 +52,7 @@ function ProjectRow({ project}) {
       <div className="flex items-center gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
         {project.status === "Pending" && (
           <button
+            onClick={() => onAccept(project.id)}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white transition-all hover:scale-105 active:scale-95"
             style={{ background: "linear-gradient(135deg, #d97706, #b45309)" }}
           >
@@ -59,6 +61,7 @@ function ProjectRow({ project}) {
         )}
         {project.status === "In Progress" && (
           <button
+            onClick={() => onComplete(project.id)}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white transition-all hover:scale-105 active:scale-95"
             style={{ background: "linear-gradient(135deg, #059669, #047857)" }}
           >

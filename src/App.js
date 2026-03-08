@@ -1,9 +1,10 @@
 // src/App.js
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import bg from './assests/bg-img.jpg';
 import AboutUs from './components/AboutUs';
+import SolarizeUI from './components/SolarlizeUI';
 
 function App() {
   const whoAreWeRef = useRef(null);
@@ -18,6 +19,7 @@ function App() {
         <HeroSection />
       </div>
       <AboutUs ref={whoAreWeRef} />
+      <SolarizeUI />
     </div>
   );
 }

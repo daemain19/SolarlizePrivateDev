@@ -1,26 +1,17 @@
 // src/App.js
-import React, { useRef, useState } from 'react';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import bg from './assests/bg-img.jpg';
-import AboutUs from './components/AboutUs';
-import SolarizeUI from './components/SolarlizeUI';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import StaffDashboard from './pages/StaffDashboard';
 
 function App() {
-  const whoAreWeRef = useRef(null);
   return (
-    <div className="min-h-screen flex flex-col">
-      <div
-        className="min-h-screen bg-cover bg-no-repeat bg-center flex flex-col"
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-        <div className="absolute inset-0 bg-[#281D08] opacity-45"></div>
-        <Navbar whoAreWeRef={whoAreWeRef} />
-        <HeroSection />
-      </div>
-      <AboutUs ref={whoAreWeRef} />
-      <SolarizeUI />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/staff" element={<StaffDashboard />} />
+      </Routes>
+    </Router>
   );
 }
 

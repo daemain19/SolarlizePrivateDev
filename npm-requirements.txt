@@ -4,3 +4,4 @@ autoprefixer
 three 
 @react-three/fiber 
 @react-three/drei
+icons-react

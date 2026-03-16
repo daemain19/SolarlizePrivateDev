@@ -6,6 +6,13 @@ import AboutUs from '../components/AboutUs';
 import SolarizeUI from '../components/SolarlizeUI';
 function HomePage() {
   const whoAreWeRef = useRef(null);
+  const solarizeUIRef = useRef(null);
+
+  const scrollToSolarizeUI = () => {
+    if (solarizeUIRef.current) {
+      solarizeUIRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div className="min-h-screen flex flex-col">
       <div
@@ -14,10 +21,12 @@ function HomePage() {
       >
         <div className="absolute inset-0 bg-[#281D08] opacity-45"></div>
         <Navbar whoAreWeRef={whoAreWeRef} />
-        <HeroSection />
+        <HeroSection scrollToSolarizeUI={scrollToSolarizeUI} />
       </div>
       <AboutUs ref={whoAreWeRef} />
-      <SolarizeUI />
+      <div ref={solarizeUIRef}>
+        <SolarizeUI />
+      </div>
     </div>
   );
 }

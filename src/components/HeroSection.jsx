@@ -14,7 +14,7 @@ const HeroSection = ({ scrollToSolarizeUI }) => {
             </p>
             <button className="mt-8 bg-[#E7FE4A] hover:bg-[#FFF7E8] text-black font-bold py-3 px-6 rounded-full flex items-center text-lg font-afacad"
                 onClick={scrollToSolarizeUI}
-            >
+                >
                 <span>Let's Get Started</span>
                 <div className="w-10 h-10 ml-3 bg-black rounded-full flex items-center justify-center text-[#FFF7E8]">
                     →

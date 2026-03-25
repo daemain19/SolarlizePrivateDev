@@ -225,7 +225,7 @@ const CountryPage = () => {
                         </div>
                     </button>
                     <button
-                        onClick={() => { }}
+                        onClick={() => navigate('/select-panels')}
                         className="bg-[#FFF7E8] text-[#2A2A2A] font-bold py-2 px-4 rounded-full flex items-center space-x-2"
                     >
                         <span>Select the Country</span>
